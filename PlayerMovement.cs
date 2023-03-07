@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(balance.isGrounded && isRunning)
+        if(balance.isGrounded && isRunning && !balance.isCrouching)
         {
             torso.velocity = new Vector2(direction * speed * Time.fixedDeltaTime, torso.velocity.y);
             balance.balanceForce = headBalanceForce + originalBalanceForce;

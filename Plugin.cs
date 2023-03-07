@@ -345,6 +345,38 @@ namespace Stickman
                     child.gameObject.layer = LayerMask.NameToLayer("Player");
                 }
 
+                GameObject outlineManager = new GameObject("OutlineManager");
+
+                foreach(Transform part in stickman.GetComponentsInChildren<Transform>())
+                {
+                    if(part != stickman.transform)
+                    {
+                        GameObject outlinePart = new GameObject(part.name + "_Outline");
+                        SpriteRenderer outlineSprite = outlinePart.AddComponent<SpriteRenderer>();
+
+                        outlineSprite.sprite = part.GetComponent<SpriteRenderer>().sprite;
+                        outlineSprite.color = new Color(0, 0, 0, 1);
+                        outlineSprite.sortingOrder = -100;
+
+                        if(part.GetComponent<CircleCollider2D>())
+                        {
+                            outlinePart.transform.localScale = new Vector2(part.transform.localScale.x + 0.05f, part.transform.localScale.y + 0.05f);
+                        }
+                        else
+                        {
+                            outlinePart.transform.localScale = new Vector2(part.transform.localScale.x + 0.05f, part.transform.localScale.y);
+                        }
+
+                        Outline outline = outlinePart.AddComponent<Outline>();
+
+                        outline.target = part.transform;
+
+                        outlinePart.transform.parent = outlineManager.transform;
+                    }
+                }
+
+                outlineManager.AddComponent<OutlineManager>();
+
                 stickman.AddComponent<Balance>();
                 stickman.AddComponent<PlayerMovement>();
                 stickman.AddComponent<Arms>();
