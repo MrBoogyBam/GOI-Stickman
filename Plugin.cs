@@ -164,9 +164,9 @@ namespace Stickman
                 legLowerLeft.transform.localScale = new Vector2(0.12f, 0.48f);
                 footLeft.transform.localScale = Vector2.one * 0.12f;
 
-                head.transform.localPosition = new Vector2(0, chestRenderer.bounds.extents.y + headRenderer.bounds.extents.y - 0.01f);
+                head.transform.localPosition = new Vector2(0, chestRenderer.bounds.extents.y + headRenderer.bounds.extents.y - 0.03f);
                 chest.transform.localPosition = Vector2.zero;
-                torso.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y + 0.01f);
+                torso.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y + 0.04f);
                 armUpperRight.transform.localPosition = new Vector2(0, chestRenderer.bounds.extents.y - armURRenderer.bounds.extents.y);
                 elbowRight.transform.localPosition = new Vector2(0, -armURRenderer.bounds.extents.y);
                 armLowerRight.transform.localPosition = new Vector2(0, -armURRenderer.bounds.extents.y - armLRRenderer.bounds.extents.y);
@@ -175,14 +175,14 @@ namespace Stickman
                 elbowLeft.transform.localPosition = new Vector2(0, -armULRenderer.bounds.extents.y);
                 armLowerLeft.transform.localPosition = new Vector2(0, -armULRenderer.bounds.extents.y - armLLRenderer.bounds.extents.y);
                 handLeft.transform.localPosition = new Vector2(0, -armULRenderer.bounds.extents.y - armLLRenderer.bounds.extents.y * 2);
-                legUpperRight.transform.localPosition = new Vector2(0, -torsoRenderer.bounds.extents.y * 3 - legURRenderer.bounds.extents.y + 0.01f);
-                kneeRight.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y * 2 - legURRenderer.bounds.extents.y * 2);
-                legLowerRight.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y * 2 - legURRenderer.bounds.extents.y * 2 - legLRRenderer.bounds.extents.y);
-                footRight.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y * 2 - legURRenderer.bounds.extents.y * 2 - legLRRenderer.bounds.extents.y * 2);
-                legUpperLeft.transform.localPosition = new Vector2(0, -torsoRenderer.bounds.extents.y * 3 - legULRenderer.bounds.extents.y + 0.01f);
-                kneeLeft.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y * 2 - legULRenderer.bounds.extents.y * 2);
-                legLowerLeft.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y * 2 - legULRenderer.bounds.extents.y * 2 - legLLRenderer.bounds.extents.y);
-                footLeft.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y * 2 - legULRenderer.bounds.extents.y * 2 - legLLRenderer.bounds.extents.y * 2);
+                legUpperRight.transform.localPosition = new Vector2(0, -torsoRenderer.bounds.extents.y * 3 - legURRenderer.bounds.extents.y + 0.07f);
+                kneeRight.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y * 2 - legURRenderer.bounds.extents.y * 2 + 0.07f);
+                legLowerRight.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y * 2 - legURRenderer.bounds.extents.y * 2 - legLRRenderer.bounds.extents.y + 0.07f);
+                footRight.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y * 2 - legURRenderer.bounds.extents.y * 2 - legLRRenderer.bounds.extents.y * 2 + 0.07f);
+                legUpperLeft.transform.localPosition = new Vector2(0, -torsoRenderer.bounds.extents.y * 3 - legULRenderer.bounds.extents.y + 0.07f);
+                kneeLeft.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y * 2 - legULRenderer.bounds.extents.y * 2 + 0.07f);
+                legLowerLeft.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y * 2 - legULRenderer.bounds.extents.y * 2 - legLLRenderer.bounds.extents.y + 0.07f);
+                footLeft.transform.localPosition = new Vector2(0, -chestRenderer.bounds.extents.y - torsoRenderer.bounds.extents.y * 2 - legULRenderer.bounds.extents.y * 2 - legLLRenderer.bounds.extents.y * 2 + 0.07f);
 
                 head.AddComponent<CircleCollider2D>();
                 chest.AddComponent<BoxCollider2D>();
