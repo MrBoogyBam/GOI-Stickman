@@ -79,6 +79,26 @@ namespace Stickman
                 GameObject legLowerLeft = new GameObject("Leg_LL");
                 GameObject footLeft = new GameObject("Foot_L");
 
+                head.transform.parent = stickman.transform;
+                chest.transform.parent = stickman.transform;
+                torso.transform.parent = stickman.transform;
+                armUpperRight.transform.parent = stickman.transform;
+                elbowRight.transform.parent = stickman.transform;
+                armLowerRight.transform.parent = stickman.transform;
+                handRight.transform.parent = stickman.transform;
+                armUpperLeft.transform.parent = stickman.transform;
+                elbowLeft.transform.parent = stickman.transform;
+                armLowerLeft.transform.parent = stickman.transform;
+                handLeft.transform.parent = stickman.transform;
+                legUpperRight.transform.parent = stickman.transform;
+                kneeRight.transform.parent = stickman.transform;
+                legLowerRight.transform.parent = stickman.transform;
+                footRight.transform.parent = stickman.transform;
+                legUpperLeft.transform.parent = stickman.transform;
+                kneeLeft.transform.parent = stickman.transform;
+                legLowerLeft.transform.parent = stickman.transform;
+                footLeft.transform.parent = stickman.transform;
+
                 SpriteRenderer headRenderer = head.AddComponent<SpriteRenderer>();
                 SpriteRenderer chestRenderer = chest.AddComponent<SpriteRenderer>();
                 SpriteRenderer torsoRenderer = torso.AddComponent<SpriteRenderer>();
@@ -119,45 +139,10 @@ namespace Stickman
                 legLLRenderer.sprite = Box(100, 100);
                 footLRenderer.sprite = Circle(50);
 
-                headRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                chestRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                torsoRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                armURRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                elbowRRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                armLRRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                handRRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                armULRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                elbowLRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                armLLRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                handLRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                legURRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                kneeRRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                legLRRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                footRRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                legULRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                kneeLRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                legLLRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-                footLRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
-
-                head.transform.parent = stickman.transform;
-                chest.transform.parent = stickman.transform;
-                torso.transform.parent = stickman.transform;
-                armUpperRight.transform.parent = stickman.transform;
-                elbowRight.transform.parent = stickman.transform;
-                armLowerRight.transform.parent = stickman.transform;
-                handRight.transform.parent = stickman.transform;
-                armUpperLeft.transform.parent = stickman.transform;
-                elbowLeft.transform.parent = stickman.transform;
-                armLowerLeft.transform.parent = stickman.transform;
-                handLeft.transform.parent = stickman.transform;
-                legUpperRight.transform.parent = stickman.transform;
-                kneeRight.transform.parent = stickman.transform;
-                legLowerRight.transform.parent = stickman.transform;
-                footRight.transform.parent = stickman.transform;
-                legUpperLeft.transform.parent = stickman.transform;
-                kneeLeft.transform.parent = stickman.transform;
-                legLowerLeft.transform.parent = stickman.transform;
-                footLeft.transform.parent = stickman.transform;
+                foreach(SpriteRenderer part in stickman.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    part.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                }
 
                 head.transform.localScale = Vector2.one * 0.6f;
                 chest.transform.localScale = new Vector2(0.12f, 0.5f);
