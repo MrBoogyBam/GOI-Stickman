@@ -380,8 +380,8 @@ namespace Stickman
                 stickman.AddComponent<Balance>();
                 stickman.AddComponent<PlayerMovement>();
                 stickman.AddComponent<Arms>();
-                handRight.AddComponent<Hands>();
-                handLeft.AddComponent<Hands>();
+                handRight.AddComponent<Hand>();
+                handLeft.AddComponent<Hand>();
 
                 GameObject.Find("Main Camera").GetComponent<CameraControl>().player = chest;
             }

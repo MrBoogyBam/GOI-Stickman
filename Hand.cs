@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Hands : MonoBehaviour
+public class Hand : MonoBehaviour
 {
     private Arms arms;
 
@@ -12,9 +12,9 @@ public class Hands : MonoBehaviour
 
     private FixedJoint2D grabJoint;
 
-    private bool canGrabRight = true;
+    public bool isGrabbingRight = false;
 
-    private bool canGrabLeft = true;
+    public bool isGrabbingLeft = false;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class Hands : MonoBehaviour
             {
                 climbJoint.enabled = false;
 
-                canGrabRight = true;
+                isGrabbingRight = false;
             }
             else
             {
@@ -48,7 +48,7 @@ public class Hands : MonoBehaviour
                 grabJoint.connectedBody = null;
                 grabJoint.enabled = false;
 
-                canGrabRight = true;
+                isGrabbingRight = false;
             }
         }
 
@@ -58,7 +58,7 @@ public class Hands : MonoBehaviour
             {
                 climbJoint.enabled = false;
 
-                canGrabLeft = true;
+                isGrabbingLeft = false;
             }
             else
             {
@@ -70,14 +70,14 @@ public class Hands : MonoBehaviour
                 grabJoint.connectedBody = null;
                 grabJoint.enabled = false;
 
-                canGrabLeft = true;
+                isGrabbingLeft = false;
             }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.otherCollider.transform == handRight && arms.isReachingRight && canGrabRight)
+        if (collision.otherCollider.transform == handRight && arms.isReachingRight && !isGrabbingRight)
         {
             if(collision.rigidbody)
             {
@@ -89,17 +89,17 @@ public class Hands : MonoBehaviour
                     Physics2D.IgnoreCollision(col, grabJoint.connectedBody.GetComponent<Collider2D>());
                 }
 
-                canGrabRight = false;
+                isGrabbingRight = true;
             }
             else
             {
                 climbJoint.enabled = true;
 
-                canGrabRight = false;
+                isGrabbingRight = true;
             }
         }
 
-        if (collision.otherCollider.transform == handLeft && arms.isReachingLeft && canGrabLeft)
+        if (collision.otherCollider.transform == handLeft && arms.isReachingLeft && !isGrabbingLeft)
         {
             if (collision.rigidbody)
             {
@@ -111,13 +111,13 @@ public class Hands : MonoBehaviour
                     Physics2D.IgnoreCollision(col, grabJoint.connectedBody.GetComponent<Collider2D>());
                 }
 
-                canGrabLeft = false;
+                isGrabbingLeft = true;
             }
             else
             {
                 climbJoint.enabled = true;
 
-                canGrabLeft = false;
+                isGrabbingLeft = true;
             }
         }
     }
