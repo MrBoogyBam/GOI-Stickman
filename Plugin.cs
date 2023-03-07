@@ -119,25 +119,10 @@ namespace Stickman
                 legLLRenderer.sprite = Box(100, 100);
                 footLRenderer.sprite = Circle(50);
 
-                head.transform.parent = stickman.transform;
-                chest.transform.parent = stickman.transform;
-                torso.transform.parent = stickman.transform;
-                armUpperRight.transform.parent = stickman.transform;
-                elbowRight.transform.parent = stickman.transform;
-                armLowerRight.transform.parent = stickman.transform;
-                handRight.transform.parent = stickman.transform;
-                armUpperLeft.transform.parent = stickman.transform;
-                elbowLeft.transform.parent = stickman.transform;
-                armLowerLeft.transform.parent = stickman.transform;
-                handLeft.transform.parent = stickman.transform;
-                legUpperRight.transform.parent = stickman.transform;
-                kneeRight.transform.parent = stickman.transform;
-                legLowerRight.transform.parent = stickman.transform;
-                footRight.transform.parent = stickman.transform;
-                legUpperLeft.transform.parent = stickman.transform;
-                kneeLeft.transform.parent = stickman.transform;
-                legLowerLeft.transform.parent = stickman.transform;
-                footLeft.transform.parent = stickman.transform;
+                foreach(Transform part in stickman.GetComponentsInChildren<Transform>())
+                {
+                    part.parent = stickman.transform;
+                }
 
                 head.transform.localScale = Vector2.one * 0.6f;
                 chest.transform.localScale = new Vector2(0.12f, 0.5f);
