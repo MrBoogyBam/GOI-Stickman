@@ -119,6 +119,26 @@ namespace Stickman
                 legLLRenderer.sprite = Box(100, 100);
                 footLRenderer.sprite = Circle(50);
 
+                headRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                chestRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                torsoRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                armURRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                elbowRRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                armLRRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                handRRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                armULRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                elbowLRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                armLLRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                handLRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                legURRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                kneeRRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                legLRRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                footRRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                legULRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                kneeLRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                legLLRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                footLRenderer.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+
                 head.transform.parent = stickman.transform;
                 chest.transform.parent = stickman.transform;
                 torso.transform.parent = stickman.transform;
