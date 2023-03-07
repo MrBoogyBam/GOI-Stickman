@@ -4,7 +4,7 @@ This mod replaces the default player model with an active ragdoll stickman figur
 
 ## Installation
 
-1. Download the latest release of BepInEx from the [BepInEx website](https://github.com/BepInEx/BepInEx/releases).
+1. Download the latest version of BepInEx (6.0.0pre1) from the [BepInEx website](https://github.com/BepInEx/BepInEx/releases).
 2. Extract the contents of the BepInEx archive into your "Getting Over It with Bennett Foddy" game directory.
 3. Run the game once to generate the necessary files.
 4. Download the latest release of the Stickman mod from the [releases page](https://github.com/MrBoogyBam/GOI-Stickman/releases).
