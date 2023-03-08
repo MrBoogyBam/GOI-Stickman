@@ -86,7 +86,10 @@ public class Hand : MonoBehaviour
 
                 foreach(Collider2D col in transform.parent.GetComponentsInChildren<Collider2D>())
                 {
-                    Physics2D.IgnoreCollision(col, grabJoint.connectedBody.GetComponent<Collider2D>());
+                    if(!col.GetComponent<Hand>())
+                    {
+                        Physics2D.IgnoreCollision(col, grabJoint.connectedBody.GetComponent<Collider2D>());
+                    }
                 }
 
                 isGrabbingRight = true;
@@ -108,7 +111,10 @@ public class Hand : MonoBehaviour
 
                 foreach (Collider2D col in transform.parent.GetComponentsInChildren<Collider2D>())
                 {
-                    Physics2D.IgnoreCollision(col, grabJoint.connectedBody.GetComponent<Collider2D>());
+                    if(!col.GetComponent<Hand>())
+                    {
+                        Physics2D.IgnoreCollision(col, grabJoint.connectedBody.GetComponent<Collider2D>());
+                    }
                 }
 
                 isGrabbingLeft = true;
