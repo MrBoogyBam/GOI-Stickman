@@ -17,7 +17,7 @@ This mod replaces the default player model with an active ragdoll stickman figur
 - **Spacebar**: Jump
 - **Left mouse button**: Reach with left arm
 - **Right mouse button**: Reach with right arm
-- **Shift**: Pull yourself up
+- **Right Shift**: Pull yourself up
 
 ## Support
 If you encounter any issues with the mod, please [submit an issue](https://github.com/MrBoogyBam/GOI-Stickman/issues/new).
