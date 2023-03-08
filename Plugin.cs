@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 using BepInEx;
-using System.Collections.Generic;
-using System;
+using Cursor = UnityEngine.Cursor;
 
 namespace Stickman
 {
