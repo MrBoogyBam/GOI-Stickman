@@ -13,6 +13,14 @@ namespace Stickman
 
         private GameObject stickman;
 
+        private Color stickmanColor;
+
+        private float redValue;
+
+        private float greenValue;
+
+        private float blueValue;
+
         private void Awake()
         {
             SceneManager.sceneLoaded += SceneLoaded;
@@ -141,7 +149,7 @@ namespace Stickman
 
                 foreach(SpriteRenderer part in stickman.GetComponentsInChildren<SpriteRenderer>())
                 {
-                    part.color = new Color(0.047f, 0.408f, 0.91f, 1f);
+                    part.color = stickmanColor;
                 }
 
                 head.transform.localScale = Vector2.one * 0.6f;
@@ -387,6 +395,32 @@ namespace Stickman
             }
         }
 
+        private void OnGUI()
+        {
+            if(SceneManager.GetActiveScene().name == "Loader")
+            {
+                GUIStyle redStyle = new GUIStyle(GUI.skin.horizontalSlider);
+                GUIStyle greenStyle = new GUIStyle(GUI.skin.horizontalSlider);
+                GUIStyle blueStyle = new GUIStyle(GUI.skin.horizontalSlider);
+                GUIStyle thumbStyle = new GUIStyle(GUI.skin.horizontalSliderThumb);
+                GUIStyle boxStyle = new GUIStyle(GUI.skin.box);
+
+                redStyle.normal.background = MakeTex(2, 2, new Color(1, 0, 0, 0.7f));
+                greenStyle.normal.background = MakeTex(2, 2, new Color(0, 1, 0, 0.7f));
+                blueStyle.normal.background = MakeTex(2, 2, new Color(0, 0, 1, 0.7f));
+
+                stickmanColor = new Color(redValue, greenValue, blueValue, 1);
+
+                boxStyle.normal.background = MakeTex(2, 2, stickmanColor);
+
+                redValue = GUI.HorizontalSlider(new Rect(10, Screen.height - 60, 300, 10), redValue, 0f, 1f, redStyle, thumbStyle);
+                greenValue = GUI.HorizontalSlider(new Rect(10, Screen.height - 40, 300, 10), greenValue, 0f, 1f, greenStyle, thumbStyle);
+                blueValue = GUI.HorizontalSlider(new Rect(10, Screen.height - 20, 300, 10), blueValue, 0f, 1f, blueStyle, thumbStyle);
+
+                GUI.Box(new Rect(340, Screen.height - 85, 75, 75), "", boxStyle);
+            }
+        }
+
         private Sprite Circle(int radius)
         {
             Texture2D tex = new Texture2D(radius * 2, radius * 2, TextureFormat.ARGB32, false);
@@ -427,6 +461,23 @@ namespace Stickman
             tex.Apply();
 
             return Sprite.Create(tex, new Rect(0, 0, width, height), new Vector2(0.5f, 0.5f));
+        }
+
+        private Texture2D MakeTex(int width, int height, Color color)
+        {
+            Color[] pixels = new Color[width * height];
+            
+            for(int i = 0; i < pixels.Length; ++i)
+            {
+                pixels[i] = color;
+            }
+
+            Texture2D result = new Texture2D(width, height);
+            
+            result.SetPixels(pixels);
+            result.Apply();
+
+            return result;
         }
     }
 }
