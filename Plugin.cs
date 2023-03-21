@@ -70,7 +70,7 @@ namespace Stickman
 
                 stickman = new GameObject("Stickman");
 
-                stickman.transform.position = new Vector3(GameObject.Find("Player").transform.position.x + 4, GameObject.Find("Player").transform.position.y + 3, GameObject.Find("Player").transform.position.z);
+                stickman.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, GameObject.Find("Player").transform.position.z);
 
                 GameObject head = new GameObject("Head");
                 GameObject chest = new GameObject("Chest");
