@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using BepInEx;
+using BepInEx.Configuration;
 using Cursor = UnityEngine.Cursor;
 
 namespace Stickman
@@ -15,14 +16,18 @@ namespace Stickman
 
         private Color stickmanColor;
 
-        private float redValue;
+        public ConfigEntry<float> redSlider;
 
-        private float greenValue;
+        public ConfigEntry<float> greenSlider;
 
-        private float blueValue;
+        public ConfigEntry<float> blueSlider;
 
         private void Awake()
         {
+            redSlider = Config.Bind("Stickman", "Red Value", 0f, "The red value of the stickman color");
+            greenSlider = Config.Bind("Stickman", "Green Value", 0.4f, "The greeb value of the stickman color");
+            blueSlider = Config.Bind("Stickman", "Blue Value", 1f, "The blue value of the stickman color");
+
             SceneManager.sceneLoaded += SceneLoaded;
         }
 
@@ -409,13 +414,13 @@ namespace Stickman
                 greenStyle.normal.background = MakeTex(2, 2, new Color(0, 1, 0, 0.7f));
                 blueStyle.normal.background = MakeTex(2, 2, new Color(0, 0, 1, 0.7f));
 
-                stickmanColor = new Color(redValue, greenValue, blueValue, 1);
+                stickmanColor = new Color(redSlider.Value, greenSlider.Value, blueSlider.Value, 1);
 
                 boxStyle.normal.background = MakeTex(2, 2, stickmanColor);
 
-                redValue = GUI.HorizontalSlider(new Rect(10, Screen.height - 60, 300, 10), redValue, 0f, 1f, redStyle, thumbStyle);
-                greenValue = GUI.HorizontalSlider(new Rect(10, Screen.height - 40, 300, 10), greenValue, 0f, 1f, greenStyle, thumbStyle);
-                blueValue = GUI.HorizontalSlider(new Rect(10, Screen.height - 20, 300, 10), blueValue, 0f, 1f, blueStyle, thumbStyle);
+                redSlider.Value = GUI.HorizontalSlider(new Rect(10, Screen.height - 60, 300, 10), redSlider.Value, 0f, 1f, redStyle, thumbStyle);
+                greenSlider.Value = GUI.HorizontalSlider(new Rect(10, Screen.height - 40, 300, 10), greenSlider.Value, 0f, 1f, greenStyle, thumbStyle);
+                blueSlider.Value = GUI.HorizontalSlider(new Rect(10, Screen.height - 20, 300, 10), blueSlider.Value, 0f, 1f, blueStyle, thumbStyle);
 
                 GUI.Box(new Rect(340, Screen.height - 85, 75, 75), "", boxStyle);
             }
